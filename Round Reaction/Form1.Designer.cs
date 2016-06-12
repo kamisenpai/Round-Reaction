@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pb_game = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_start = new System.Windows.Forms.Button();
             this.txtX = new System.Windows.Forms.TextBox();
             this.txtY = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,16 +61,6 @@
             // 
             this.timer1.Interval = 5;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btn_start
-            // 
-            this.btn_start.Location = new System.Drawing.Point(12, 12);
-            this.btn_start.Name = "btn_start";
-            this.btn_start.Size = new System.Drawing.Size(584, 524);
-            this.btn_start.TabIndex = 1;
-            this.btn_start.Text = "Start Game";
-            this.btn_start.UseVisualStyleBackColor = true;
-            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
             // txtX
             // 
@@ -133,6 +122,7 @@
             this.listEnemy.Name = "listEnemy";
             this.listEnemy.Size = new System.Drawing.Size(199, 524);
             this.listEnemy.TabIndex = 14;
+            this.listEnemy.Visible = false;
             // 
             // label3
             // 
@@ -192,16 +182,15 @@
             this.label6.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label6.Location = new System.Drawing.Point(325, 557);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 13);
+            this.label6.Size = new System.Drawing.Size(114, 13);
             this.label6.TabIndex = 20;
-            this.label6.Text = "By Kamikaze Senpai";
+            this.label6.Text = "By Gabriel Liviu Szalay";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 594);
-            this.Controls.Add(this.btn_start);
+            this.ClientSize = new System.Drawing.Size(609, 594);
             this.Controls.Add(this.lblGame);
             this.Controls.Add(this.lblGame2);
             this.Controls.Add(this.label6);
@@ -217,10 +206,14 @@
             this.Controls.Add(this.txtX);
             this.Controls.Add(this.pb_game);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Round Reaction";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pb_game)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -231,7 +224,6 @@
 
         private System.Windows.Forms.PictureBox pb_game;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btn_start;
         private System.Windows.Forms.TextBox txtX;
         private System.Windows.Forms.TextBox txtY;
         private System.Windows.Forms.Label label1;

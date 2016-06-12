@@ -30,7 +30,6 @@ namespace Round_Reaction
         }
         private void StartGame()
         {
-            btn_start.SendToBack();
             Engine.px = pb_game.Width; Engine.py = pb_game.Height;
             Engine.initDraw();
             Engine.initPoints();
@@ -58,11 +57,11 @@ namespace Round_Reaction
             {
                 timer1.Enabled = false;
                 timer2.Enabled = false;
+                Cursor.Show();
                 MessageBox.Show(" Ai iesit din spatiul de joc.\n Game Over \n Ai rezistat "+ timp +" secunde. \n Felicitari :)","GAME OVER", MessageBoxButtons.OK, MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
                 timp = 0; txtTime.Text = "";
                 Engine.RefreshGame();
                 StartGame();
-                Cursor.Show();
                 lblGame.Visible = true;
                 lblGame2.Visible = true;
             }
@@ -88,12 +87,12 @@ namespace Round_Reaction
             {
                 timer1.Enabled = false;
                 timer2.Enabled = false;
+                Cursor.Show();
                 MessageBox.Show(" Inamicii te-au prins.\n Game Over\n Ai rezistat " + timp + " secunde. \n Felicitari :)", "GAME OVER", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 txtTime.Text = "";
                 timp = 0;
                 Engine.RefreshGame();
-                StartGame();
-                Cursor.Show();
+                StartGame();              
                 lblGame.Visible = true;
                 lblGame2.Visible = true;
             }
@@ -101,35 +100,40 @@ namespace Round_Reaction
             pb_game.Image = Engine.bmp;
         }
 
-        private void btn_start_Click(object sender, EventArgs e)
-        {
-            if (timer1.Enabled)
-            {
-                lblGame.Visible = true;
-                lblGame2.Visible = true;
-                btn_start.Visible = true;
-                timer1.Enabled = false;
-                timer2.Enabled = false;       
-                timp = 0; txtTime.Text = "";
-                btn_start.Text = "START";
-            }
-            else
-            {
-                Cursor.Hide();
-                lblGame.Visible = false;
-                lblGame2.Visible = false;
-                timer1.Enabled = true;
-                timer2.Enabled = true;
-                btn_start.Text = "STOP";
-
-            }
-        }
+            //if (timer1.Enabled)
+            //{
+            //    Cursor.Show();
+            //    btn_start.Enabled = true;
+            //    lblGame.Visible = true;
+            //    lblGame2.Visible = true;
+            //    btn_start.Visible = true;
+            //    timer1.Enabled = false;
+            //    timer2.Enabled = false;       
+            //    timp = 0; txtTime.Text = "";
+            //    btn_start.Text = "START";
+            //}
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             
             timp = timp + 1;
             txtTime.Text = timp.ToString();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Space)
+            {
+                if (!timer1.Enabled)             
+                {
+                    Cursor.Hide();
+                    //btn_start.Enabled = false;
+                    lblGame.Visible = false;
+                    lblGame2.Visible = false;
+                    timer1.Enabled = true;
+                    timer2.Enabled = true;
+                }
+            }
         }
     }
 }
