@@ -58,7 +58,7 @@ namespace Round_Reaction
                 timer1.Enabled = false;
                 timer2.Enabled = false;
                 Cursor.Show();
-                MessageBox.Show(" Ai iesit din spatiul de joc.\n Game Over \n Ai rezistat "+ timp +" secunde. \n Felicitari :)","GAME OVER", MessageBoxButtons.OK, MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
+                MessageBox.Show(" You went out of the boundaries.\n Game Over \n You lasted "+ timp +" seconds. \n Congratulations :)","GAME OVER", MessageBoxButtons.OK, MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
                 timp = 0; txtTime.Text = "";
                 Engine.RefreshGame();
                 StartGame();
@@ -77,7 +77,7 @@ namespace Round_Reaction
                 for (int i = 0; i < Engine.army; i++)
                 {
                     int nr = i + 1;
-                    listEnemy.Items.Add("Inamicul " + nr + " Coord X " + (int)Engine.enemyPoint[i].X + " Coord Y " + (int)Engine.enemyPoint[i].Y);
+                    listEnemy.Items.Add("Enemy " + nr + " Coord X " + (int)Engine.enemyPoint[i].X + " Coord Y " + (int)Engine.enemyPoint[i].Y);
                 }
             }
             else listEnemy.Visible = false;
@@ -88,7 +88,7 @@ namespace Round_Reaction
                 timer1.Enabled = false;
                 timer2.Enabled = false;
                 Cursor.Show();
-                MessageBox.Show(" Inamicii te-au prins.\n Game Over\n Ai rezistat " + timp + " secunde. \n Felicitari :)", "GAME OVER", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(" The enemy caught you.\n Game Over\n You lasted " + timp + " seconds. \n Congratulations :)", "GAME OVER", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 txtTime.Text = "";
                 timp = 0;
                 Engine.RefreshGame();
@@ -103,7 +103,6 @@ namespace Round_Reaction
             //if (timer1.Enabled)
             //{
             //    Cursor.Show();
-            //    btn_start.Enabled = true;
             //    lblGame.Visible = true;
             //    lblGame2.Visible = true;
             //    btn_start.Visible = true;
@@ -127,13 +126,29 @@ namespace Round_Reaction
                 if (!timer1.Enabled)             
                 {
                     Cursor.Hide();
-                    //btn_start.Enabled = false;
                     lblGame.Visible = false;
                     lblGame2.Visible = false;
                     timer1.Enabled = true;
                     timer2.Enabled = true;
                 }
             }
+        }
+
+        private void pb_game_Click(object sender, EventArgs e)
+        {
+            if (!timer1.Enabled)
+            {
+                Cursor.Hide();
+                lblGame.Visible = false;
+                lblGame2.Visible = false;
+                timer1.Enabled = true;
+                timer2.Enabled = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Thame is made with graphics. The rules are simple, put your cursor where there is no other ball and press space or click and the game will start. \n The objective is to avoid the other balls and try and hold as long as you can. There is a timer that will show you when the game is over how much you have lasted.", "MVP lab project in WFA C#", MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 }

@@ -46,6 +46,7 @@
             this.txtTime = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_game)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             this.pb_game.Size = new System.Drawing.Size(584, 524);
             this.pb_game.TabIndex = 0;
             this.pb_game.TabStop = false;
+            this.pb_game.Click += new System.EventHandler(this.pb_game_Click);
             // 
             // timer1
             // 
@@ -64,7 +66,7 @@
             // 
             // txtX
             // 
-            this.txtX.Location = new System.Drawing.Point(190, 554);
+            this.txtX.Location = new System.Drawing.Point(212, 554);
             this.txtX.Name = "txtX";
             this.txtX.ReadOnly = true;
             this.txtX.Size = new System.Drawing.Size(31, 20);
@@ -81,7 +83,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(197, 577);
+            this.label1.Location = new System.Drawing.Point(220, 577);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 4;
@@ -99,16 +101,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(147, 557);
+            this.label4.Location = new System.Drawing.Point(143, 551);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.Size = new System.Drawing.Size(63, 26);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Cursor";
+            this.label4.Text = "Cursor\r\nCoordinates";
             // 
             // txtCount
             // 
             this.txtCount.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtCount.Location = new System.Drawing.Point(73, 554);
+            this.txtCount.Location = new System.Drawing.Point(63, 554);
             this.txtCount.Name = "txtCount";
             this.txtCount.ReadOnly = true;
             this.txtCount.Size = new System.Drawing.Size(52, 20);
@@ -127,31 +129,30 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 557);
+            this.label3.Location = new System.Drawing.Point(8, 557);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Coliziune?";
+            this.label3.Text = "Colision?";
             // 
             // lblGame
             // 
             this.lblGame.AutoSize = true;
-            this.lblGame.Location = new System.Drawing.Point(205, 220);
+            this.lblGame.Location = new System.Drawing.Point(160, 216);
             this.lblGame.Name = "lblGame";
-            this.lblGame.Size = new System.Drawing.Size(186, 13);
+            this.lblGame.Size = new System.Drawing.Size(296, 13);
             this.lblGame.TabIndex = 16;
-            this.lblGame.Text = "Apasa \"Space\" pentru a incepe jocul.";
+            this.lblGame.Text = "Press Space or Click inside the game space to start the game";
             // 
             // lblGame2
             // 
             this.lblGame2.AutoSize = true;
             this.lblGame2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGame2.Location = new System.Drawing.Point(95, 110);
+            this.lblGame2.Location = new System.Drawing.Point(145, 113);
             this.lblGame2.Name = "lblGame2";
-            this.lblGame2.Size = new System.Drawing.Size(429, 50);
+            this.lblGame2.Size = new System.Drawing.Size(332, 50);
             this.lblGame2.TabIndex = 17;
-            this.lblGame2.Text = "Pozitioneaza cursorul in interiorul spatiului de joc\r\n                     altfel" +
-    " jocul nu va incepe";
+            this.lblGame2.Text = "Put the cursor inside the game space\r\n     otherwise the game won\'t start";
             // 
             // timer2
             // 
@@ -161,7 +162,7 @@
             // txtTime
             // 
             this.txtTime.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtTime.Location = new System.Drawing.Point(538, 554);
+            this.txtTime.Location = new System.Drawing.Point(554, 554);
             this.txtTime.Name = "txtTime";
             this.txtTime.ReadOnly = true;
             this.txtTime.Size = new System.Drawing.Size(52, 20);
@@ -170,27 +171,38 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(472, 557);
+            this.label5.Location = new System.Drawing.Point(518, 557);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Timp Scurs";
+            this.label5.Text = "Time:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label6.Location = new System.Drawing.Point(325, 557);
+            this.label6.Location = new System.Drawing.Point(299, 557);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 13);
             this.label6.TabIndex = 20;
             this.label6.Text = "By Gabriel Liviu Szalay";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(433, 551);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(47, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Help";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 594);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblGame);
             this.Controls.Add(this.lblGame2);
             this.Controls.Add(this.label6);
@@ -238,6 +250,7 @@
         private System.Windows.Forms.TextBox txtTime;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
     }
 }
 
